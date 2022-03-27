@@ -118,38 +118,36 @@ const Form = () => {
                 <input type="submit" value="SUBMIT" />
             </form>
             <hr></hr>
-
-            <div className="showHeader">
-                 <ul>
-                     <li>Serial Number</li>
-                     <li>Name</li>
-                     <li>Age</li>
-                     <li>Address</li>
-                     <li>Department</li>
-                     <li>Salary</li>
-                     <li>Marital State</li>
-                 </ul>
-             </div>
-            {
-                data.map((item) => {
-                    console.log(item.marital_state)
-                    return (
-                        <div className="showData">
-                            <ul>
-                                <li>{item.id}</li>
-                                <li>{item.name}</li>
-                                <li>{item.age}</li>
-                                <li>{item.address}</li>
-                                <li>{item.department}</li>
-                                <li>{item.salary}</li>
-                                {
-                                   item.marital_state === true ? <li>True</li> : <li>False</li> 
-                                }
-                            </ul>
-                        </div> 
-                    )      
-        })
-            }
+                   
+            <div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>Department </th>
+                        <th>Salary</th>
+                        <th>marital state</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {data.map((item) => {
+                        return (
+                        <tr key={item.id}>
+                            <td>{item.name}</td>
+                            <td>{item.age}</td>
+                            <td>{item.address}</td>
+                            <td>{item.department}</td>
+                            <td>{item.salary}</td>
+                            <td>{item.marital_state ? "Yes" : "No"}</td>
+                        </tr>
+                        );
+                    })}
+                    </tbody>
+                </table>
+            </div>
+    
         </div>
     )
 
